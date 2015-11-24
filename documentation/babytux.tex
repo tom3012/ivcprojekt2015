@@ -1,0 +1,181 @@
+\documentclass[11pt,parskip]{scrartcl}
+\usepackage[ngerman]{babel}
+
+% For XeTeX %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fontspec}
+\setromanfont{Linux Libertine O}
+\setsansfont{Linux Biolinum O}
+
+% For pdfTeX %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[T1]{fontenc}
+%\usepackage{inputenc}
+%\usepackage{mathpazo}
+
+% Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{biblatex}
+\usepackage{amsmath}
+\usepackage[a4paper]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage[colorlinks=false, pdfborder={0 0 0 }]{hyperref}
+\usepackage{cleveref}
+\usepackage[autostyle=true,german=quotes]{csquotes}
+\usepackage{blindtext}
+
+% Options %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\widowpenalty=10000
+\clubpenalty=10000
+
+
+% Begin of document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+
+% Titlepage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\begin{titlepage}
+  \begin{sffamily}
+    {\scshape\LARGE \textcolor{gray}{Universität Hamburg}\par}
+    {\scshape\Large \textcolor{gray}{Projektarbeit Interactive Visual
+        Computing}\par}
+    \vspace{2.5cm}
+    \centering
+    {\huge\bfseries Babytux\par}
+    {\large\bfseries Ein Povray-Film über das Erwachsenwerden eines Pinguins\par}
+    \vspace{1.5cm}
+    {\Large\itshape \textcolor{darkgray}{
+        Lemme, Inga \quad{}
+        Ort, Thomas \quad{}
+        Remmels, Melanie
+      }\par
+    }
+    \vfill
+    \includegraphics[width=0.20\textwidth]{./fig/ourtux.pdf}\par\vspace{1cm}
+    \vfill
+    % Bottom of the page
+    {\large \today\par}
+  \end{sffamily}
+\end{titlepage}
+%
+% End of Titlepage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newpage
+\tableofcontents
+\newpage
+
+
+\section{Projektidee}
+Vorlage für die Hauptfigur des hier beschriebenen Films ist das Maskottchen des
+freien Kernels \emph{Linux}. Dieses stellt einen Pinguin dar und wird kurz
+\emph{Tux} genannt. \emph{Tux} wurde im Jahr 1996 von \emph{Larry Ewing} mit
+der Bildbearbeitungssoftware \emph{GIMP} entworfen und steht seitdem zur freien
+Verfügung für die Gemeinde. Er darf nach Belieben verwendet und verändert
+werden, solange auf Nachfrage sowohl Urheber\footnote{lewing@isc.tamu.edu} als
+auch das verwendete Programm genannt werden. \cite{ewing}
+
+Die Idee, dass das Logo ausgerechnet einem Pinguin nachempfunden ist, stammt
+von \emph{Linus Torvalds}, dem Gründer von Linux. Laut \emph{Jeff Ayers}, einem
+Linuxentwickler, besitzt \emph{Torvalds} eine Affinität für
+\enquote{\emph{flugunfähige, fette Wasservögel}}, sodass letztlich der Entwurf
+von \emph{Ewing} übernommen wurde. Eine weitere Anekdote, die zur Auswahl des
+Pinguins beigetragen hat stammt von einem Erlebnis \emph{Torvalds} in einem
+Aquarium in Canberra, Australien. Dort wurde er von einem Pinguin gebissen und
+sei seitdem mit der Krankheit \emph{Penguinitis} infiziert:
+
+\begin{quote}
+  \enquote{Penguinitis makes you stay awake at nights just thinking about
+    penguins and feeling great love towards them.} \cite{tuxstory}
+\end{quote}
+
+Es gibt inzwischen unzählige Versionen des Maskottchens, in dieser
+Arbeitsgruppe haben wir uns an einer modernen und jungen Version des Pinguins
+orientiert wie in Abbildung \ref{fig:taticetux} zu sehen.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.3\textwidth]{./fig/tatice-g2-tux.pdf}
+  \caption{
+    Die Hauptfigur des Filmes wurde nach diesem Vorbild entwickelt. Das
+    gezeigte Modell stammt vom Autor \emph{Tatice} und wurde unter
+    \emph{Creative Commons BY-NC-SA} veröffentlicht.
+    \emph{
+      (Quelle: \url{http://tux.crystalxp.net/de.id.21103-tatice-g2-tux.html)}
+    }
+  }
+  \label{fig:taticetux}
+\end{figure}
+
+
+\subsection{Plot des Films}
+Zu Beginn des Films ist zunächst ein Ei zu sehen, welches immer größere Risse
+bekommt und aus diesem letztlich der Tux schlüpft. Anschließend entdeckt der
+Pinguin, dass er Füße, Flügel und seinen Schwanz bewegen kann. Nachdem er sich
+etwas umsieht beginnt er seine Gegend zu erkunden und läuft los. Im weiteren
+Verlauf wird ein Zeitraffer-Effekt eingesetzt. Der Tux wächst langsam und
+entdeckt dabei die schönen und schwierigen Dinge des Lebens.
+
+
+\newpage
+
+\section{Statischer Aufbau der Figuren}
+Im Folgenden wird beschrieben mittels welcher povray-Funktionen die einzelnen
+Figuren und Objekte des Films erstellt wurden.
+
+
+\subsection{Konstruktion der Umgebung}
+
+
+\subsection{Aufbau eines Pinguineis}
+
+
+\subsection{Aufbau der Hauptfigur}
+Der Grundaufbau des Tux besteht aus zwei Kugeln in povray \texttt{sphere}
+genannt.
+
+
+\subsubsection{Bewegliche Gliedmaßen}
+
+
+\newpage
+
+\section{Aufbau der einzelnen Animationssequenzen}
+
+
+\subsection{Titelsequenz}
+
+
+\subsection{Sequenz 1: Schlüpfen des Tux}
+
+
+\subsection{Sequenz 2: Babytux entdeckt seine beweglichen Gliedmaßen}
+
+
+\subsection{Sequenz 3: Babytux macht erste Gehversuche}
+
+
+\subsection{Abschlusssequenz}
+
+
+\newpage
+
+\section{Fertigstellung des gesamten Films}
+
+
+\subsection{Zusammenfügen der einzelnen Sequenzen}
+
+
+\subsection{Vertonung}
+
+
+\subsection{Korrekturen}
+
+
+\newpage
+\addcontentsline{toc}{section}{Literatur}
+\bibliographystyle{unsrt}
+\bibliography{bibtux}
+
+\end{document}
