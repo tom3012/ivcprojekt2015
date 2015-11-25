@@ -23,6 +23,7 @@
 \usepackage{cleveref}
 \usepackage[autostyle=true,german=quotes]{csquotes}
 \usepackage{blindtext}
+\usepackage{listings}
 
 % Options %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \widowpenalty=10000
@@ -121,19 +122,70 @@ entdeckt dabei die schönen und schwierigen Dinge des Lebens.
 \newpage
 
 \section{Statischer Aufbau der Figuren}
-Im Folgenden wird beschrieben mittels welcher povray-Funktionen die einzelnen
-Figuren und Objekte des Films erstellt wurden.
+Im Folgenden wird beschrieben mittels welcher povray-Funktionen und Objekte die
+einzelnen Figuren, Requisiten und Szenenbilder des Films erstellt wurden.
 
 
 \subsection{Konstruktion der Umgebung}
 
 
-\subsection{Aufbau eines Pinguineis}
+\subsection{Aufbau des Pinguineis}
 
 
 \subsection{Aufbau der Hauptfigur}
-Der Grundaufbau des Tux besteht aus zwei Kugeln in povray \texttt{sphere}
-genannt.
+
+
+\subsubsection{Körper}
+Zu allererst werden die Proportionen als \texttt{declare}-Anweisung festgelegt.
+Um die Proportionen unabhängig von der Größe des Tux gleich zu halten, wird
+nur die Höhe \texttt{tuxheight} variabel gehalten. Die anderen Größen wie
+\texttt{tuxwidth} oder \texttt{radiustummy} werden mit \texttt{tuxheight}
+verrechnet.
+
+Der Grundaufbau des Tux besteht aus zwei Grundkugeln, in povray \texttt{sphere}
+genannt. Einer unteren großen Kugel für den Unterleib und einer etwas kleineren
+Kugel für den Kopf oberhalb. Der Unterleib besteht zunächst aus \emph{einer}
+Kugel. Zur Realisierung des weißen Bauches existieren zwei weitere
+\texttt{sphere}-Objekte, deren Schnittmenge (\emph{intersection}) anschließend
+mit der großen Kugel vereinigt wird (\emph{union}).
+
+\begin{lstlisting}
+  union{
+    intersection{
+      sphere{ 0, radiustummy }
+      sphere{ 0, radiustummy }
+      scale <0.6, 1.5, 0.25>
+      translate <0, 0, -radiustummy + 0.1>
+    }
+    pigment{ White }
+    sphere{
+      0, radiustummy
+      pigment{ Gray10 }
+    }
+  }
+\end{lstlisting}
+
+Die weiße Schnittmenge ist mit den Funktionen \texttt{scale} und
+\texttt{translate} so verschoben und skaliert, dass der vordere Teil der
+Hauptkugel in den richtigen Proportionen weiß erscheint. Sowohl Kopf, als auch
+Unterleib sind in einer \texttt{declare}-Anweisung als \texttt{head} und
+\texttt{tummy} global geltend gemacht. So können diese direkt angesprochen
+werden, ohne den Code immer wieder neu reproduzieren zu müssen.
+
+Der Kopf des Pinguins ist mit einer \texttt{sphere} generiert, die zwei Drittel
+der Größe des Unterleibs beträgt. In den Kopf sind Augen mit schwarzen Pupillen
+eingelassen. Zunächst ist die Pupille in einer \texttt{declare}-Anweisung
+festgelegt. Sie besteht wie der Bauch aus der Schnittmenge zweier Kugeln. Die
+beiden Augen sind in \texttt{LeftEye} und \texttt{RightEye} deklariert. Hier
+sind die Pupillen als Objekt mit einem weiteren \texttt{sphere}-Objekt
+vereinigt (\texttt{union}).
+
+Der Schnabel des Tux ist mittels eines \texttt{cone}-Objektes realisiert.
+Hierbei sind Zentrum und Radius der beiden Enden, sowie die Skalierung des
+gesamten Objektes so gewählt, dass ein flach gedrückter Kegel entsteht.
+
+\subsubsection{Gliedmaßen}
+Der Tux besteht weiterhin aus zwei Füßen und zwei Flügeln.
 
 
 \subsubsection{Bewegliche Gliedmaßen}
@@ -157,6 +209,8 @@ genannt.
 
 
 \subsection{Abschlusssequenz}
+In der Abschlusssequenz erscheint der Originaltux von Larry Ewing als
+Grafik\ldots
 
 
 \newpage
