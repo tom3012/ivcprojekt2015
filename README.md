@@ -43,8 +43,8 @@ werden, solange auf Nachfrage sowohl [Urheber](lewing@isc.tamu.edu) als
 auch das [verwendete Programm](https://www.gimp.org) genannt werden.
 
 Die Hauptfigur des Filmes wurde nach 
-[diesem](http://tux.crystalxp.net/de.id.21103-tatice-g2-tux.html) 
-Vorbild entwickelt. Das gezeigte Modell stammt vom Autor Tatice und wurde unter
-Creative Commons BY-NC-SA veröffentlicht. 
-[(Quelle, ](http://tux.crystalxp.net/de.id.21103-tatice-g2-tux.html)
+[diesem](http://tux.crystalxp.net/de.id.1568-overlord59-overlord59-tux-g2.html) 
+Vorbild entwickelt. Das gezeigte Modell stammt vom Autor Overlord59 des 
+Crystalxp.net-Teams und wurde unter Creative Commons BY-NC-SA veröffentlicht. 
+[(Quelle, ](http://tux.crystalxp.net/de.id.1568-overlord59-overlord59-tux-g2.html)
 Achtung massive Werbeeinblendungen!)
