@@ -8,6 +8,10 @@ Hamburg aktiv entwickelt.
 
 Das Projekt wird im Verzeichnis *./documentation/* in LaTeX dokumentiert.
 
+### Povray-Styleguide
+
+...
+
 ### Povray-Dateien
 
 Eine Povray-Datei kann mit folgendem Befehl zu einem Bild im png-Format verarbeitet
