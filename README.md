@@ -42,4 +42,5 @@ Die Hauptfigur des Filmes wurde nach
 [diesem](http://tux.crystalxp.net/de.id.21103-tatice-g2-tux.html) 
 Vorbild entwickelt. Das gezeigte Modell stammt vom Autor Tatice und wurde unter
 Creative Commons BY-NC-SA veröffentlicht. 
-[(Quelle)](http://tux.crystalxp.net/de.id.21103-tatice-g2-tux.html)
+[(Quelle, ](http://tux.crystalxp.net/de.id.21103-tatice-g2-tux.html)
+Achtung massive Werbeeinblendungen!)
