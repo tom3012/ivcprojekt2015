@@ -75,7 +75,6 @@ cone{
   <0, 0, -radiushead + 0.5>, 0.15,
   <0, 0, -radiushead - 0.3>, 0.02
   pigment{ Yellow }
-  finish{ phong 1 }
   scale <1, 0.6, 0.5>
   rotate -45 * x
   translate -(radiushead + 0.15) * 0.5 * z
@@ -86,7 +85,6 @@ union{
   sphere{
     0,  radiushead
     pigment{  Gray10  }
-    finish{ phong 1 }
   }
   object{
     LeftEye
@@ -111,12 +109,10 @@ union{
       translate <0, 0, -radiustummy + 0.1>
     }
     pigment{ White }
-    finish{ phong 1 }
   }
   sphere{
     0, radiustummy
     pigment{  Gray10  }
-    finish{ phong 1 }
   }
   rotate -15 * x
 }
@@ -128,13 +124,11 @@ difference{
     <wingX, wingY, 0>, 0.25,
     <1.5 * radiustummy, 2/3 * radiustummy, 0>, 0.02
     pigment{ Gray10 }
-    finish{ phong 1 }
   }
   sphere{
     <1/3 * radiustummy, 1/3 * radiustummy, 0>,
     2/3 * radiustummy
-    pigment{ Gray10 }
-    finish{ phong 1 }
+    pigment{ VLightGray }
     scale <1.6, 1.0, 1.0>
   }
 }
@@ -145,7 +139,6 @@ intersection{
   sphere{
     0, radiusfoot
     pigment{ Yellow }
-    finish{ phong 1 }
   }
   box{ <-1, 0, -1>, <1, 1, 1> }
 }
@@ -156,7 +149,6 @@ cone{
   <0, 0, 1/2 * radiustummy>, 0.2,
   <0, 0, radiustummy + 0.2>, 0.02
   pigment{ Gray10 }
-  finish{ phong 1 }
   scale <1, 0.6, 0.5>
   rotate 45 * x
   translate <0, 0.25, 0.15>

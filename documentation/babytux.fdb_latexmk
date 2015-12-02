@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex babytux"] 1448447736 "babytux.aux" "babytux.bbl" "babytux" 1448447737
+["bibtex babytux"] 1448447736 "babytux.aux" "babytux.bbl" "babytux" 1448448117
   "/usr/share/texmf-dist/bibtex/bst/base/unsrt.bst" 1447534200 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "babytux.aux" 1448447737 3770 e5b5347e9d8cd34907c96d41c9c6b202 ""
+  "babytux.aux" 1448448117 3770 e5b5347e9d8cd34907c96d41c9c6b202 ""
   "babytux.bcf" 0 -1 0 ""
   "bibtux.bib" 1448401209 408 c6645407383f9bef8910164c7b98770d ""
   (generated)
   "babytux.blg"
   "babytux.bbl"
-["pdflatex"] 1448447736 "babytux.tex" "babytux.pdf" "babytux" 1448447737
+["pdflatex"] 1448448115 "babytux.tex" "babytux.pdf" "babytux" 1448448117
   "./fig/ourtux.pdf" 1448399862 37528 2416c3bb833bdcc1182f2842178007bc ""
   "./fig/overlord59tux.pdf" 1448447688 51665 1d34ef937e2c853eb17ccedddaab3211 ""
   "/usr/local/share/texmf/tex/latex/blindtext/blindtext.sty" 1445812331 47295 de48b7f8ebf4b54709a2f6b2c7106dd5 ""
@@ -108,16 +108,16 @@
   "/usr/share/texmf-dist/tex/xelatex/xunicode/xunicode.sty" 1447534197 205722 8027ed7ab2230086d647802c25f3ee42 ""
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1447534201 31669 df537245012f3e5f05bdc55644b7a3df ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1447945554 3817839 bd87a19ba808f7c5549966bdac20dd9a ""
-  "babytux.aux" 1448447737 3770 e5b5347e9d8cd34907c96d41c9c6b202 ""
+  "babytux.aux" 1448448117 3770 e5b5347e9d8cd34907c96d41c9c6b202 ""
   "babytux.bbl" 1448447736 422 87163a5fc9fe6340b76f1d09a55b7645 "bibtex babytux"
-  "babytux.out" 1448447737 1479 686a1025f9450de0bfe5f186f165c329 ""
-  "babytux.tex" 1448447733 7746 6661719d1d85319f64793454678146a8 ""
-  "babytux.toc" 1448447737 1754 32f4bf045105d9fcfa36647339fdf66b ""
+  "babytux.out" 1448448117 1479 686a1025f9450de0bfe5f186f165c329 ""
+  "babytux.tex" 1448448114 7748 caf807f97cc2de489decb1599420a6ea ""
+  "babytux.toc" 1448448117 1754 32f4bf045105d9fcfa36647339fdf66b ""
   "fig/ourtux.pdf" 1448399862 37528 2416c3bb833bdcc1182f2842178007bc ""
   "fig/overlord59tux.pdf" 1448447688 51665 1d34ef937e2c853eb17ccedddaab3211 ""
   (generated)
-  "babytux.toc"
-  "babytux.out"
-  "babytux.pdf"
-  "babytux.log"
   "babytux.aux"
+  "babytux.toc"
+  "babytux.pdf"
+  "babytux.out"
+  "babytux.log"
