@@ -4,7 +4,6 @@
 #include "tux.pov"
 #include "soother.pov"
 #include "bow.pov"
-
 #include "textures.inc"
 #include "stars.inc"
 
@@ -39,7 +38,7 @@ light_source{
 
 //background{ Blue_Sky2 }
 sphere{
-  <0,0,0>, 1
+  <0, 0, 0>, 1
   texture{ Starfield1 scale 0.25 }
   scale 10000
 }
@@ -53,7 +52,7 @@ plane {
 // Tux Assembly
 #declare BabyTux =
 union{
-union{
+  union{
     sphere{
       0,  radiushead
       pigment{  Gray10 }
@@ -67,19 +66,17 @@ union{
       rotate <10, -20, 0>
     }
     union{
-      object{ 
-        Beak 
-      }
+      object{ Beak }
       //Schnuller
-      object{ 
-        Soother 
+      object{
+        Soother
         translate <0, -0.25, -radiushead - 0.15 >
       }
-      translate sin(clock * 2 * pi-radiushead - 0.15)*z*0.02
+      translate sin(clock * 2 * pi-radiushead - 0.15) * z * 0.02
     }
     translate radiustummy * 2 * y
   }
-  
+
 
 
   // Bauch
@@ -89,9 +86,7 @@ union{
   }
 
   // Linker Fluegel
-  object{
-    Wing
-  }
+  object{ Wing }
 
   // Rechter Fluegel
   object{
@@ -116,20 +111,16 @@ union{
   }
 
   //Schwanz
-  object{ 
-    Tail 
-  }
+  object{ Tail }
 
   //Schleife
   object{
     Bow
-    rotate <40,-20,-20>
-    scale <0.2,0.2,0.2>
-    translate <0.15,2*radiustummy+(radiushead/2),-0.25>
+    rotate <40, -20, -20>
+    scale <0.2, 0.2, 0.2>
+    translate <0.15, 2 * radiustummy + (radiushead / 2), -0.25>
   }
 }
 
-object{
-  BabyTux
-}
+object{ BabyTux }
 

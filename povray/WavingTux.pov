@@ -47,7 +47,7 @@ plane {
 
 
 //------------------------------------------------------------------------------
-/* Tux Assembly*/
+// Tux Assembly
 
 #declare WavingTux =
 union{
@@ -92,3 +92,4 @@ union{
 }
 
 object{ WavingTux }
+
