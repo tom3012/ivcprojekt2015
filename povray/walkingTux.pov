@@ -4,7 +4,6 @@
 #include "tux.pov"
 #include "textures.inc"
 #include "stars.inc"
-#include "WalkingTux.pov"
 
 
 //------------------------------------------------------------------------------
@@ -47,7 +46,7 @@ plane {
 
 
 //------------------------------------------------------------------------------
-// Tux Assembly
+/* Tux Assembly*/
 
 #declare WavingTux =
 union{
@@ -92,4 +91,3 @@ union{
 }
 
 object{ WavingTux }
-

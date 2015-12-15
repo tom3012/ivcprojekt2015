@@ -5,7 +5,7 @@
 
 
 //------------------------------------------------------------------------------
-// Schnuller
+//Schnuller
 
 #declare Soother =
 union{
@@ -20,4 +20,3 @@ union{
   }
   pigment{ DarkPurple }
 }
-

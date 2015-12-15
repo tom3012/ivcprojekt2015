@@ -1,5 +1,6 @@
 // Projekt Baby-Tux
 
+
 //------------------------------------------------------------------------------
 // Include-Dateien
 
@@ -20,13 +21,11 @@
 // Wing Parameter
 #declare wingX = 1/3 * radiustummy;
 #declare wingY = 4/3 * radiustummy;
-/*#declare amplitudeFoot =15;
-#declare StepWidth=1;
-#declare amplitudeWobble=8;*/
 
 
 //------------------------------------------------------------------------------
 // Kopf
+
 #declare Pupil =
 intersection{
   sphere{ 0, radiuseye - 0.005 }

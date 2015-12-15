@@ -9,10 +9,8 @@
 //------------------------------------------------------------------------------
 // Deklarationen
 
-#declare radiusfoot=radiustummy / 2.5;
-#declare amplitudeFoot = 15;
-#declare StepWidth = 1;
-#declare amplitudeWobble = 8;
+#declare radiusfoot = radiustummy / 2.5;
+#declare amplitudeWave = 10;
 
 
 //------------------------------------------------------------------------------
@@ -36,26 +34,27 @@ light_source{
 
 //background{ Blue_Sky2 }
 sphere{
-  <0,0,0>, 1
+  <0, 0, 0>, 1
   texture{ Starfield1 scale 0.25 }
   scale 10000
 }
 
 plane {
   <0, 1, 0>, -0.01
-  texture{ EMBWood1 }
+  texture{ Candy_Cane }
 }
 
 
 //------------------------------------------------------------------------------
-// Tux Assembly
+/* Tux Assembly*/
 
-#declare WalkingTux =
+#declare WavingTux =
 union{
   object{
     Head
     translate radiustummy * 2 * y
   }
+
   object{
     Tummy
     translate radiustummy * y
@@ -64,6 +63,9 @@ union{
   // Linker Fluegel
   object{
     Wing
+    translate <-wingX, -wingY, 0>
+    rotate z * sin(clock * 2 * pi) * amplitudeWave
+    translate <wingX, wingY, 0>
   }
 
   // Rechter Fluegel
@@ -75,26 +77,17 @@ union{
   // Linker Fuss
   object{
     Foot
-    translate <0, 0, -radiusfoot>
-    rotate -x * amplitudeFoot * sin(clock * 2 * pi + 20)
-    translate <-radiustummy / 2, 0, 0>
+    translate <-radiustummy / 2, 0, -radiusfoot>
   }
 
   // Rechter Fuss
   object{
     Foot
-    translate <0, 0, -radiusfoot>
-    rotate x * amplitudeFoot * sin(clock * 2 * pi + 20)
-    translate <radiustummy / 2, 0, 0>
+    translate <radiustummy / 2, 0, -radiusfoot>
   }
 
   //Schwanz
   object{ Tail }
 }
 
-object{
-  WalkingTux
-  translate <0, 0, -StepWidth * clock>
-  rotate z * sin(clock * 2 * pi) * amplitudeWobble
-}
-
+object{ WavingTux }

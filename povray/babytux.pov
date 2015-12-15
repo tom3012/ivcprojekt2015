@@ -18,44 +18,13 @@
 
 
 //------------------------------------------------------------------------------
-// Kameraeinstellungen
-
-camera{
-  location <0, 2, -10>
-  look_at <0, 0, 0>
-  angle 36
-  //rotate 360 * clock * y
-}
-
-light_source{
-  <500, 500, -1000>
-  White
-}
-
-
-//------------------------------------------------------------------------------
-// Umgebung
-
-//background{ Blue_Sky2 }
-sphere{
-  <0, 0, 0>, 1
-  texture{ Starfield1 scale 0.25 }
-  scale 10000
-}
-
-plane {
-  <0, 1, 0>, -0.01
-  texture{ EMBWood1 }
-}
-
-//------------------------------------------------------------------------------
 // Tux Assembly
 #declare BabyTux =
 union{
   union{
     sphere{
       0,  radiushead
-      pigment{  Gray10 }
+      pigment{ Gray10 }
     }
     object{
       LeftEye
@@ -66,7 +35,9 @@ union{
       rotate <10, -20, 0>
     }
     union{
-      object{ Beak }
+      object{
+        Beak
+      }
       //Schnuller
       object{
         Soother
@@ -76,8 +47,6 @@ union{
     }
     translate radiustummy * 2 * y
   }
-
-
 
   // Bauch
   object{
@@ -97,16 +66,12 @@ union{
   // Linker Fuss
   object{
     Foot
-    //translate <0, 0, -radiusfoot>
-    //rotate -x * amplitudeFoot * sin(clock * 2 * pi + 20)
     translate <-radiustummy / 2, 0, 0>
   }
 
   // Rechter Fuss
   object{
     Foot
-    //translate <0, 0, -radiusfoot>
-    //rotate x * amplitudeFoot * sin(clock * 2 * pi + 20)
     translate <radiustummy / 2, 0, 0>
   }
 
@@ -121,6 +86,4 @@ union{
     translate <0.15, 2 * radiustummy + (radiushead / 2), -0.25>
   }
 }
-
-object{ BabyTux }
 
