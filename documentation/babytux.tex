@@ -112,11 +112,16 @@ orientiert wie in Abbildung \ref{fig:overlord59tux} zu sehen.
 
 \subsection{Plot des Films}
 Zu Beginn des Films ist zunächst ein Ei zu sehen, welches immer größere Risse
-bekommt und aus diesem letztlich der Tux schlüpft. Anschließend entdeckt der
-Pinguin, dass er Füße, Flügel und seinen Schwanz bewegen kann. Nachdem er sich
-etwas umsieht beginnt er seine Gegend zu erkunden und läuft los. Im weiteren
-Verlauf wird ein Zeitraffer-Effekt eingesetzt. Der Tux wächst langsam und
-entdeckt dabei die schönen und schwierigen Dinge des Lebens.
+bekommt und anschließend ein Stück aus dem Ei heraus bricht. Aus dem
+heraus gebrochenen Stück schauen die Augen des Tux.
+
+Der obere Teil des Eis bricht auf und letztlich schlüpft der Tux. Anschließend
+entdeckt der Pinguin, dass er Füße, Flügel und seinen Schwanz bewegen kann.
+Nachdem er sich etwas umsieht beginnt er seine Gegend zu erkunden und läuft
+los.
+
+Im weiteren Verlauf wird ein Zeitraffer-Effekt eingesetzt. Der Tux wächst
+langsam und entdeckt dabei die schönen und schwierigen Dinge des Lebens.
 
 
 \newpage
@@ -127,9 +132,28 @@ einzelnen Figuren, Requisiten und Szenenbilder des Films erstellt wurden.
 
 
 \subsection{Konstruktion der Umgebung}
+In der Datei \texttt{environment.pov} wurde die Umgebung konstruiert, sodass
+diese in die jeweiligen Sequenzen inkludiert werden können.
 
 
 \subsection{Aufbau des Pinguineis}
+Die Grundstruktur des Eis wurde von der Vorgängergruppe (Teil 1) übernommen
+und an unseren Film angepasst. Dazu wurden jeweils für den oberen Teil und den
+unteren Teil des Eis ein weiteres etwas kleineres Ei-Objekt erzeugt und mittels
+\texttt{difference} vom größeren Objekt abgezogen. Dadurch wird das Ei von
+innen hohl. Damit das jeweilige Objekt auch als hohl erkannt wird, wurde das
+innere Objekt minimal nach oben bzw. nach unten verschoben.
+
+\begin{lstlisting}
+  difference{
+    object{ Egg_lowerpart }
+    object{
+      Egg_lowerpart
+      translate <0, 0.1, 0>
+      scale <0.9, 0.9, 0.9>
+    }
+  }
+\end{lstlisting}
 
 
 \subsection{Aufbau der Hauptfigur}
@@ -188,6 +212,11 @@ gesamten Objektes so gewählt, dass ein flach gedrückter Kegel entsteht.
 Der Tux besteht weiterhin aus zwei Füßen und zwei Flügeln.
 
 
+\subsection{Utensilien}
+Der Tux ist in diesem Film ein weibliches Jungtier, daher wurde eine Schleife
+und ein Schnuller konstruiert.
+
+
 \subsubsection{Bewegliche Gliedmaßen}
 
 
@@ -200,7 +229,37 @@ Der Tux besteht weiterhin aus zwei Füßen und zwei Flügeln.
 
 
 \subsection{Sequenz 1: Schlüpfen des Tux}
-
+Zunächst bekommt das Ei einen Riss. Als nächstes bricht ein Stück aus dem Ei
+heraus und die Augen des Tux erscheinen aus dem dunklen Inneren des Eis. Zur
+Realisierung dieser Szene wurde ein Objekt \texttt{Crack} erstellt.
+\texttt{Crack} besteht aus mehreren quadratischen \texttt{box}-Objekten die
+ineinander verdreht sind.
+%
+\begin{lstlisting}
+  union{
+    box{
+      <-0.5, 0, -0.5>
+      <0.5, 0.1, 0.5>
+    }
+    box{
+      <-0.5, 0, -0.5>
+      <0.5, 0.1, 0.5>
+      rotate <5, 20, 10>
+    }
+    ...
+  }
+\end{lstlisting}
+%
+Dieses Objekt wurde so klein erstellt, dass es in das Ei-Objekt passt.
+Anschließend wurde das \texttt{crack}-Objekt abhängig von der Zeit in der x- und
+z-Richtung größer skaliert und eine Differenz zum Ei-Objekt gebildet. Die
+Animation zeigt im Ergebnis einen Riß, der sich immer mehr vergrößert und am
+Ende zwei Ei-Hälften erscheinen.
+%
+\begin{lstlisting}
+  ...
+\end{lstlisting}
+%
 
 \subsection{Sequenz 2: Babytux entdeckt seine beweglichen Gliedmaßen}
 
