@@ -10,7 +10,37 @@ Das Projekt wird im Verzeichnis *./documentation/* in LaTeX dokumentiert.
 
 ### Povray-Styleguide
 
-...
+Abschnitte trennen:
+Immer eine Kopfzeile mit Beschreibung:
+
+    //------------------------------------------------------------------------------
+    // Deklerationen
+
+
+Objekte, Schnittmengen, Algebra etc. mit einer Zeile, mit Leerzeichen versehen:
+
+    background{ Ausdruck }
+
+
+Objekte, Schnittmengen, Algebra etc. mit mehreren Zeilen:
+
+    union{
+     erster Ausdruck
+     zweiter Ausdruck
+    }
+
+
+Vektoren und mathematische Ausdrücke mit Leerzeichen versehen; zwischen
+Funktion und Vektor Leerzeichen lassen:
+
+    rotate <x, y, z>
+    5 + 6 * 7
+
+
+Kommentare immer mit Leerezeichen:
+
+    // Kommentar
+
 
 ### Povray-Dateien
 
