@@ -3,6 +3,9 @@
 *.swp
 *.swo
 
+# ignore movie folder because of many many png's
+movies/
+
 # ignore following latex files
 *.aux
 *.glo
