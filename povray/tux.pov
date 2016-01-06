@@ -139,7 +139,9 @@ intersection{
     0, radiusfoot
     pigment{ Yellow }
   }
-  box{ <-1, 0, -1>, <1, 1, 1> }
+  box{ <-1, 0, -1>, <1, 1, 1> 
+    pigment{ Yellow }
+  }
 }
 
 // Schwanz
