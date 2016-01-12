@@ -23,11 +23,23 @@
 \usepackage{cleveref}
 \usepackage[autostyle=true,german=quotes]{csquotes}
 \usepackage{blindtext}
-\usepackage{listings}
+%\usepackage{listings}
+\usepackage{tcolorbox}
+\tcbuselibrary{listings}
+\usepackage{siunitx}
 
 % Options %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \widowpenalty=10000
 \clubpenalty=10000
+
+\definecolor{light-gray}{gray}{0.95}
+\tcbset{
+    listing only,
+    colback=light-gray,
+    coltext=black,
+    boxrule=0pt,
+    left=-2.5pt
+  }
 
 
 % Begin of document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -43,8 +55,8 @@
         Computing}\par}
     \vspace{2.5cm}
     \centering
-    {\huge\bfseries Babytux\par}
-    {\large\bfseries Ein Povray-Film über das Erwachsenwerden eines Pinguins\par}
+    {\huge\bfseries Es war einmal ein Babytux\ldots\par}
+    {\large\bfseries Ein Povray-Animationsfilm\par}
     \vspace{1.5cm}
     {\Large\itshape \textcolor{darkgray}{
         Lemme, Inga \quad{}
@@ -53,7 +65,7 @@
       }\par
     }
     \vfill
-    \includegraphics[width=0.20\textwidth]{./fig/ourtux.pdf}\par\vspace{1cm}
+    \includegraphics[width=0.75\textwidth]{./fig/ourtux4.pdf}\par\vspace{1cm}
     \vfill
     % Bottom of the page
     {\large \today\par}
@@ -69,15 +81,15 @@
 
 
 \section{Projektidee}
-Vorlage für die Hauptfigur des hier beschriebenen Films ist das Maskottchen des
+Vorlage für die Hauptfigur des hier beschriebenen Films wurde das Maskottchen des
 freien Kernels \emph{Linux}. Dieses stellt einen Pinguin dar und wird kurz
 \emph{Tux} genannt. \emph{Tux} wurde im Jahr 1996 von \emph{Larry Ewing} mit
 der Bildbearbeitungssoftware \emph{GIMP} entworfen und steht seitdem zur freien
 Verfügung für die Gemeinde. Er darf nach Belieben verwendet und verändert
-werden, solange auf Nachfrage sowohl Urheber\footnote{lewing@isc.tamu.edu} als
-auch das verwendete Programm genannt werden. \cite{ewing}
+wurden, solange auf Nachfrage sowohl Urheber\footnote{lewing@isc.tamu.edu} als
+auch das verwendete Programm genannt wurden. \cite{ewing}
 
-Die Idee, dass das Logo ausgerechnet einem Pinguin nachempfunden ist, stammt
+Die Idee, dass das Logo ausgerechnet einem Pinguin nachempfunden wurde, stammt
 von \emph{Linus Torvalds}, dem Gründer von Linux. Laut \emph{Jeff Ayers}, einem
 Linuxentwickler, besitzt \emph{Torvalds} eine Affinität für
 \enquote{\emph{flugunfähige, fette Wasservögel}}, sodass letztlich der Entwurf
@@ -103,7 +115,10 @@ orientiert wie in Abbildung \ref{fig:overlord59tux} zu sehen.
     gezeigte Modell stammt vom Autor \emph{Overlord59} und wurde unter
     \emph{Creative Commons BY-NC-SA} veröffentlicht.
     \emph{
-      (Quelle: \url{http://tux.crystalxp.net/de.id.1568-overlord59-overlord59-tux-g2.html)}
+      (Quelle:
+      \url{http://tux.crystalxp.net/de
+        .id.1568-overlord59-overlord59-tux-g2.html)
+      }
     }
   }
   \label{fig:overlord59tux}
@@ -111,7 +126,7 @@ orientiert wie in Abbildung \ref{fig:overlord59tux} zu sehen.
 
 
 \subsection{Plot des Films}
-Zu Beginn des Films ist zunächst ein Ei zu sehen, welches immer größere Risse
+Zu Beginn des Films wurde zunächst ein Ei zu sehen, welches immer größere Risse
 bekommt und anschließend ein Stück aus dem Ei heraus bricht. Aus dem
 heraus gebrochenen Stück schauen die Augen des Tux.
 
@@ -123,6 +138,23 @@ los.
 Im weiteren Verlauf wird ein Zeitraffer-Effekt eingesetzt. Der Tux wächst
 langsam und entdeckt dabei die schönen und schwierigen Dinge des Lebens.
 
+\subsection{Liste der Povray-Module}
+
+Im Folgenden sind alle Module beschrieben, die im Projekt erstellt und verwendet
+wurden.
+
+\begin{description}
+  \item [environment.pov] Aufbau der Umgebung; enthält Himmel und Boden.
+  \item [egg.pov] Geschlossenes Ei-Objekt.
+  \item [tux.pov] Körper des Tux ohne Accessoires.
+  \item [bow.pov] Pinke Schleife.
+  \item [soother.pov] Schnuller.
+  \item [assempledTux.pov] Zusammengebauter Tux mit Accessoires.
+  \item [crack.pov] Objekt zum Erstellen eines Risses im Ei-Objekt.
+  \item [tuxIsBorn.pov] Animation des wackelnden Eis und Animation der
+    Risse; Tux erscheint im Ei mit animiertem Nuckeln am Schnuller.
+  \item [babytuxDiscovers.pov] Animation der beweglichen Gliedmaßen des Tux.
+\end{description}
 
 \newpage
 
@@ -132,8 +164,11 @@ einzelnen Figuren, Requisiten und Szenenbilder des Films erstellt wurden.
 
 
 \subsection{Konstruktion der Umgebung}
-In der Datei \texttt{environment.pov} wurde die Umgebung konstruiert, sodass
-diese in die jeweiligen Sequenzen inkludiert werden können.
+In der Datei \texttt{environment.pov} wurden alle relevanten Objekte der Umgebung
+festgelegt. Der Himmel wurde mittels \texttt{sphere} der Boden mittels
+\texttt{plane} realisiert. Dabei wurde für den Himmel eine \texttt{color\_map}
+eingesetzt um einen Farbverlauf herzustellen. Für eine unebene Struktur des
+Bodens wurde das Pattern \texttt{bumps} verwendet.
 
 
 \subsection{Aufbau des Pinguineis}
@@ -143,9 +178,9 @@ unteren Teil des Eis ein weiteres etwas kleineres Ei-Objekt erzeugt und mittels
 \texttt{difference} vom größeren Objekt abgezogen. Dadurch wird das Ei von
 innen hohl. Damit das jeweilige Objekt auch als hohl erkannt wird, wurde das
 innere Objekt minimal nach oben bzw. nach unten verschoben.
-
-\begin{lstlisting}
-  difference{
+%
+\begin{tcblisting}{}
+    difference{
     object{ Egg_lowerpart }
     object{
       Egg_lowerpart
@@ -153,27 +188,26 @@ innere Objekt minimal nach oben bzw. nach unten verschoben.
       scale <0.9, 0.9, 0.9>
     }
   }
-\end{lstlisting}
+\end{tcblisting}
 
 
 \subsection{Aufbau der Hauptfigur}
 
-
 \subsubsection{Körper}
-Zu allererst werden die Proportionen als \texttt{declare}-Anweisung festgelegt.
+Zu allererst wurden die Proportionen als \texttt{declare}-Anweisung festgelegt.
 Um die Proportionen unabhängig von der Größe des Tux gleich zu halten, wird
 nur die Höhe \texttt{tuxheight} variabel gehalten. Die anderen Größen wie
-\texttt{tuxwidth} oder \texttt{radiustummy} werden mit \texttt{tuxheight}
+\texttt{tuxwidth} oder \texttt{radiustummy} wurden mit \texttt{tuxheight}
 verrechnet.
 
 Der Grundaufbau des Tux besteht aus zwei Grundkugeln, in povray \texttt{sphere}
 genannt. Einer unteren großen Kugel für den Unterleib und einer etwas kleineren
 Kugel für den Kopf oberhalb. Der Unterleib besteht zunächst aus \emph{einer}
-Kugel. Zur Realisierung des weißen Bauches existieren zwei weitere
+Kugel. Zur Realisierung des weißen Bauches exwurdeieren zwei weitere
 \texttt{sphere}-Objekte, deren Schnittmenge (\emph{intersection}) anschließend
 mit der großen Kugel vereinigt wird (\emph{union}).
 %
-\begin{lstlisting}
+\begin{tcblisting}{}
   union{
     intersection{
       sphere{ 0, radiustummy }
@@ -187,55 +221,93 @@ mit der großen Kugel vereinigt wird (\emph{union}).
       pigment{ Gray10 }
     }
   }
-\end{lstlisting}
+\end{tcblisting}
 %
-Die weiße Schnittmenge ist mit den Funktionen \texttt{scale} und
+Die weiße Schnittmenge wurde mit den Funktionen \texttt{scale} und
 \texttt{translate} so verschoben und skaliert, dass der vordere Teil der
 Hauptkugel in den richtigen Proportionen weiß erscheint. Sowohl Kopf, als auch
-Unterleib sind in einer \texttt{declare}-Anweisung als \texttt{head} und
+Unterleib wurden in einer \texttt{declare}-Anweisung als \texttt{head} und
 \texttt{tummy} global geltend gemacht. So können diese direkt angesprochen
-werden, ohne den Code immer wieder neu reproduzieren zu müssen.
+wurden, ohne den Code immer wieder neu reproduzieren zu müssen.
 
-Der Kopf des Pinguins ist mit einer \texttt{sphere} generiert, die zwei Drittel
-der Größe des Unterleibs beträgt. In den Kopf sind Augen mit schwarzen Pupillen
-eingelassen. Zunächst ist die Pupille in einer \texttt{declare}-Anweisung
+Der Kopf des Pinguins wurde mit einer \texttt{sphere} generiert, die zwei Drittel
+der Größe des Unterleibes beträgt. In den Kopf wurden Augen mit schwarzen Pupillen
+eingelassen. Zunächst wurde die Pupille in einer \texttt{declare}-Anweisung
 festgelegt. Sie besteht wie der Bauch aus der Schnittmenge zweier Kugeln. Die
-beiden Augen sind in \texttt{LeftEye} und \texttt{RightEye} deklariert. Hier
-sind die Pupillen als Objekt mit einem weiteren \texttt{sphere}-Objekt
+beiden Augen wurden in \texttt{LeftEye} und \texttt{RightEye} deklariert. Hier
+wurden die Pupillen als Objekt mit einem weiteren \texttt{sphere}-Objekt
 vereinigt (\texttt{union}).
 
-Der Schnabel des Tux ist mittels eines \texttt{cone}-Objektes realisiert.
-Hierbei sind Zentrum und Radius der beiden Enden, sowie die Skalierung des
+Der Schnabel des Tux wurde mittels eines \texttt{cone}-Objektes realisiert.
+Hierbei wurden Zentrum und Radius der beiden Enden, sowie die Skalierung des
 gesamten Objektes so gewählt, dass ein flach gedrückter Kegel entsteht.
 
 \subsubsection{Gliedmaßen}
-Der Tux besteht weiterhin aus zwei Füßen und zwei Flügeln.
+Der Tux besteht weiterhin aus zwei Füßen und zwei Flügeln. Die Flügel bestehen
+aus jeweils einem Objekt \texttt{Wing}, welches aus einer Differenz aus
+\texttt{cone} und \texttt{sphere} gebildet wurde. Die Füße bestehen aus dem
+Objekt \texttt{Foot}, der Schnittmenge aus \texttt{sphere} und \texttt{box}.
+Dadurch wurde die Sphäre halbiert und es ist nur die obere Hälfte sichtbar.
 
+In der Rückansicht ist ein Schwanz zu sehen. Dieser wurde aus einer einfachen
+\texttt{cone} in passender Größe generiert und lässt sich als
+\texttt{Tail}-Objekt ansprechen.
 
-\subsection{Utensilien}
+\subsubsection{Accessoires}
 Der Tux ist in diesem Film ein weibliches Jungtier, daher wurde eine Schleife
-und ein Schnuller konstruiert.
+(\texttt{Bow}) und ein Schnuller (\texttt{Soother}) konstruiert. Die Schleife
+wurde zunächst als ein \texttt{PartBow}-Objekt deklariert, welches eine
+\texttt{cone} generiert. In einer \texttt{union} wurden anschließend zwei dieser
+Objekte zusammengefügt, wobei eines um \ang{180} gedreht wurde. Der Knoten der
+Schleife wurde innerhalb der \texttt{union} mittels \texttt{sphere} umgesetzt.
+
+Für den Schnuller wurde eine \texttt{sphere} und ein \texttt{torus} vereinigt.
+Die beiden Accessoires wurden in jeweils eine Datei ausgelagert, dadurch sind
+die Objekte vom eigentlichen Körper unabhängig und können bei Bedarf auch
+weggelassen werden.
 
 
-\subsubsection{Bewegliche Gliedmaßen}
-
-
+\subsection{Bewegliche Gliedmaßen}
 \newpage
 
-\section{Aufbau der einzelnen Animationssequenzen}
 
+\section{Aufbau der einzelnen Animationssequenzen}
+Der überwiegende Teil der einzelnen Sequenzen wurde jeweils innerhalb einer
+Datei mittels der Funktion \texttt{clock} und mehreren \texttt{if}-Schleifen
+realisiert. Dazu wurde zu Beginn die Variable \texttt{MyClock} deklariert.
+
+Bsp.:
+%
+\begin{tcblisting}{}
+  #declare My_Clock = Start + (End - Start) * clock;
+
+  #if (My_Clock <= 1)
+  /* tue etwas */
+
+  #elseif(My_Clock <=2)
+  /* tue etwas anderes */
+  ...
+\end{tcblisting}
+%
+Mittels dieser Deklarationen war es möglich die folgenden kurzen Sequenzen zu
+erstellen.
 
 \subsection{Titelsequenz}
 
+\subsection{Sequenz 1: Erstes Anzeichen von Leben}
+Das Ei beginnt sich mehrere Male hin und her zu bewegen. Dazwischen gibt es
+immer wieder Pausen. Dazu wurde die sinus-Funktion verwendet. Dabei werden
 
-\subsection{Sequenz 1: Schlüpfen des Tux}
-Zunächst bekommt das Ei einen Riss. Als nächstes bricht ein Stück aus dem Ei
-heraus und die Augen des Tux erscheinen aus dem dunklen Inneren des Eis. Zur
-Realisierung dieser Szene wurde ein Objekt \texttt{Crack} erstellt.
+\subsection{Sequenz 2: Schlüpfen des Tux}
+Zunächst bekommt das Ei einen Riss, welcher immer größer wird und sich um das
+ganze Ei ausdehnt. Sobald die obere Hälfte von der Unteren des Eis komplett
+getrennt ist, hebt die obere Hälfte ab und fliegt nach hinten weg.
+
+Zur Realisierung dieser Szene wurde ein Objekt \texttt{Crack} erstellt.
 \texttt{Crack} besteht aus mehreren quadratischen \texttt{box}-Objekten die
-ineinander verdreht sind.
+ineinander verdreht wurden.
 %
-\begin{lstlisting}
+\begin{tcblisting}{}
   union{
     box{
       <-0.5, 0, -0.5>
@@ -248,18 +320,13 @@ ineinander verdreht sind.
     }
     ...
   }
-\end{lstlisting}
+\end{tcblisting}
 %
 Dieses Objekt wurde so klein erstellt, dass es in das Ei-Objekt passt.
 Anschließend wurde das \texttt{crack}-Objekt abhängig von der Zeit in der x- und
 z-Richtung größer skaliert und eine Differenz zum Ei-Objekt gebildet. Die
-Animation zeigt im Ergebnis einen Riß, der sich immer mehr vergrößert und am
+Animation zeigt im Ergebnis einen Riss, der sich immer mehr vergrößert und am
 Ende zwei Ei-Hälften erscheinen.
-%
-\begin{lstlisting}
-  ...
-\end{lstlisting}
-%
 
 \subsection{Sequenz 2: Babytux entdeckt seine beweglichen Gliedmaßen}
 
@@ -271,8 +338,8 @@ Ende zwei Ei-Hälften erscheinen.
 In der Abschlusssequenz erscheint der Originaltux von Larry Ewing als
 Grafik\ldots
 
-
 \newpage
+
 
 \section{Fertigstellung des gesamten Films}
 
