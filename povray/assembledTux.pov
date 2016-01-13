@@ -4,7 +4,7 @@
 #include "tux.pov"
 #include "textures.inc"
 #include "stars.inc"
-
+#include "Bow.pov"
 
 //------------------------------------------------------------------------------
 // Deklarationen
@@ -24,6 +24,15 @@ union{
     Head
     translate radiustummy * 2 * y
   }
+
+  //Schleife
+  object{
+    Bow
+    rotate <40, -20, -20>
+    scale <0.2, 0.2, 0.2>
+    translate <0.15, 2 * radiustummy + (radiushead / 2), -0.25>
+  }
+
   object{
     Tummy
     translate radiustummy * y
@@ -52,5 +61,6 @@ union{
 
   //Schwanz
   object{ Tail }
+
 }
 

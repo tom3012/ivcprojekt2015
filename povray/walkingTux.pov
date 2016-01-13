@@ -4,6 +4,7 @@
 #include "tux.pov"
 #include "textures.inc"
 #include "stars.inc"
+//#include "environment.pov"
 
 
 //------------------------------------------------------------------------------
@@ -13,39 +14,6 @@
 #declare amplitudeFoot = 15;
 #declare StepWidth = 1;
 #declare amplitudeWobble = 8;
-
-
-//------------------------------------------------------------------------------
-// Kameraeinstellungen
-
-camera{
-  location <0, 2, -10>
-  look_at <0, 0, 0>
-  angle 36
-  //rotate 360 * clock * y
-}
-
-light_source{
-  <500, 500, -1000>
-  White
-}
-
-
-//------------------------------------------------------------------------------
-// Umgebung
-
-//background{ Blue_Sky2 }
-sphere{
-  <0,0,0>, 1
-  texture{ Starfield1 scale 0.25 }
-  scale 10000
-}
-
-plane {
-  <0, 1, 0>, -0.01
-  texture{ EMBWood1 }
-}
-
 
 
 //------------------------------------------------------------------------------
@@ -93,9 +61,9 @@ union{
   object{ Tail }
 }
 
-object{
+/*object{
   WalkingTux
-  translate <0, 0, -StepWidth * clock>
+  //translate <0, 0, -StepWidth * clock>
   rotate z * sin(clock * 2 * pi) * amplitudeWobble
-}
+}*/
 
