@@ -31,3 +31,7 @@ movies/
 *.out
 *.synctex.gz
 *.latexmkrc
+
+# ignore povray trash
+.nfs000*
+*.pov-state
