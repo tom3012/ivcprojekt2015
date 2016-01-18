@@ -10,8 +10,8 @@
 #include "f-lohmueller/Door_1.inc"
 #include "f-lohmueller/House_1_0.inc"
 #include "f-lohmueller/Fence_1.inc"
-#include "runevision/grasstex.inc"
-#include "runevision/grasstexa.pov"
+//#include "runevision/grasstex.inc"
+//#include "runevision/grasstexa.pov"
 
 
 //------------------------------------------------------------------------------

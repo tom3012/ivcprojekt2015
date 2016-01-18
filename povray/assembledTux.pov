@@ -4,7 +4,7 @@
 #include "tux.pov"
 #include "textures.inc"
 #include "stars.inc"
-#include "Bow.pov"
+#include "bow.pov"
 
 //------------------------------------------------------------------------------
 // Deklarationen

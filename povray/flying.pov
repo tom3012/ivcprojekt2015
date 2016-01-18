@@ -2,7 +2,7 @@
 // Include-Dateien
 
 
-#include "f-lohmueller/PLane_00.inc"
+#include "f-lohmueller/Plane_00.inc"
 #include "textures.inc"
 #include "colors.inc"
 

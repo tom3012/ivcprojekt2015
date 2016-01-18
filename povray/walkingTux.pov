@@ -4,7 +4,7 @@
 #include "tux.pov"
 #include "textures.inc"
 #include "stars.inc"
-//#include "environment.pov"
+#include "bow.pov"
 
 
 //------------------------------------------------------------------------------
@@ -59,6 +59,14 @@ union{
 
   //Schwanz
   object{ Tail }
+  
+  //Schleife
+  object{
+    Bow
+    rotate <40, -20, -20>
+    scale <0.2, 0.2, 0.2>
+    translate <0.15, 2 * radiustummy + (radiushead / 2), -0.25>
+  }
 }
 
 /*object{

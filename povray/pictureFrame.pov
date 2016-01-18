@@ -5,7 +5,7 @@
 
 
 
-#declare PictureFrame =
+#macro PictureFrame( image) 
 union { box { // Pictureframe
       <-0.5, -0.5, -0.05>, <0.5, 0.5, 0.05>
       pigment { rgb <0.309804, 0.192157, 0.156863> }
@@ -26,15 +26,15 @@ union { box { // Pictureframe
       <-0.5, -0.5, -0.001>, <0.5, 0.5, 0.001>
       pigment {
         image_map {
-            jpeg "pictures/eiffelturm.jpg"
+            jpeg image
             map_type 0
          }
          translate <0.5, 0.5, 0>
       }
-      finish { Phong_Glossy }
+      //finish { Phong_Glossy }
       scale <1.705, 1.705, 1>
       translate z*(-0.04901)
    }
    rotate x*10
 }
-
+#end
