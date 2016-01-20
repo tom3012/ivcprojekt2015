@@ -5,6 +5,7 @@
 
 # ignore movie folder because of many many png's
 movies/
+pngs/
 
 # ignore following latex files
 *.aux
