@@ -59,7 +59,7 @@ union{
 
   //Schwanz
   object{ Tail }
-  
+
   //Schleife
   object{
     Bow
