@@ -55,17 +55,17 @@
         Computing}\par}
     \vspace{2.5cm}
     \centering
-    {\huge\bfseries Es war einmal ein Babytux\ldots\par}
-    {\large\bfseries Ein Povray-Animationsfilm\par}
+    {\huge\bfseries Das wunderbare Leben des kleinen Tux\par}
+    {\large\bfseries Ein POV-Ray-Animationsfilm\par}
     \vspace{1.5cm}
     {\Large\itshape \textcolor{darkgray}{
-        Lemme, Inga \quad{}
-        Ort, Thomas \quad{}
-        Remmels, Melanie
+        Inga Lemme \quad{}
+        Thomas Ort \quad{}
+        Melanie Remmels
       }\par
     }
     \vfill
-    \includegraphics[width=0.75\textwidth]{./fig/ourtux4.pdf}\par\vspace{1cm}
+    \includegraphics[width=0.25\textwidth]{./fig/tuxegg.png}\par\vspace{1cm}
     \vfill
     % Bottom of the page
     {\large \today\par}
@@ -106,7 +106,7 @@ sei seitdem mit der Krankheit \emph{Penguinitis} infiziert:
 Es gibt inzwischen unzählige Versionen des Maskottchens, in dieser
 Arbeitsgruppe haben wir uns an einer modernen und jungen Version des Pinguins
 orientiert wie in Abbildung \ref{fig:overlord59tux} zu sehen.
-
+%
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.3\textwidth]{./fig/overlord59tux.pdf}
@@ -123,25 +123,32 @@ orientiert wie in Abbildung \ref{fig:overlord59tux} zu sehen.
   }
   \label{fig:overlord59tux}
 \end{figure}
+%
+
+In diesem Projekt wurde das Programm \emph{POV-Ray} verwendet, um
+dreidimensionale Figuren und Objekte, sowie kurze Animationssequenzen zu
+erstellen. Die Animationssequenzen bestehen dabei aus mehreren Bildern, die
+mittels \emph{FFmpeg} in ein Videoformat konvertiert und anschließend mit
+\emph{iMovie} geschnitten und vertont wurden.
 
 
 \subsection{Plot des Films}
-Zu Beginn des Films wurde zunächst ein Ei zu sehen, welches immer größere Risse
-bekommt und anschließend ein Stück aus dem Ei heraus bricht. Aus dem
-heraus gebrochenen Stück schauen die Augen des Tux.
+Zu Beginn des Films ist zunächst ein Ei zu sehen, welches einen immer größeren
+Riss bekommt. Der obere Teil des Eis bricht auf und letztlich schlüpft der Tux.
+Der Babytux erscheint und springt aus der unteren Hälfte des Eis heraus.
+Anschließend entdeckt der Pinguin, dass er Füße, Flügel und seinen Schwanz
+bewegen kann.
 
-Der obere Teil des Eis bricht auf und letztlich schlüpft der Tux. Anschließend
-entdeckt der Pinguin, dass er Füße, Flügel und seinen Schwanz bewegen kann.
-Nachdem er sich etwas umsieht beginnt er seine Gegend zu erkunden und läuft
-los.
+Ein durch das Bild fliegendes Flugzeug soll andeuten, wie Tux die
+Welt und dabei allerlei Sehenswürdigkeiten entdeckt. Diese werden anschließend
+in einer Bildergalerie gezeigt, durch die der inzwischen herangewachsene Tux
+hindurch läuft.
 
-Im weiteren Verlauf wird ein Zeitraffer-Effekt eingesetzt. Der Tux wächst
-langsam und entdeckt dabei die schönen und schwierigen Dinge des Lebens.
+In der Abschlusssequenz genießt Tux seinen Lebensabend auf einem Schaukelstuhl
+vor seinem Haus.
 
-\subsection{Liste der Povray-Module}
 
-Im Folgenden sind alle Module beschrieben, die im Projekt erstellt und verwendet
-wurden.
+\subsection{Liste der POV-Ray-Module}
 
 \begin{description}
   \item [environment.pov] Aufbau der Umgebung; enthält Himmel und Boden.
@@ -154,12 +161,17 @@ wurden.
   \item [tuxIsBorn.pov] Animation des wackelnden Eis und Animation der
     Risse; Tux erscheint im Ei mit animiertem Nuckeln am Schnuller.
   \item [babytuxDiscovers.pov] Animation der beweglichen Gliedmaßen des Tux.
+  \item [flying.pov] Flugzeug, welches horizontal durch das Bild fliegt.
+  \item [gallery.pov] Die Bildergalerie mit dem hindurch laufenden Tux.
+  \item [oldTux.pov] Tux in einem Schaukelstuhl vor seinem Haus.
 \end{description}
+
 
 \newpage
 
+
 \section{Statischer Aufbau der Figuren}
-Im Folgenden wird beschrieben mittels welcher povray-Funktionen und Objekte die
+Im Folgenden wird beschrieben mittels welcher POV-Ray-Funktionen und Objekte die
 einzelnen Figuren, Requisiten und Szenenbilder des Films erstellt wurden.
 
 
@@ -200,12 +212,12 @@ nur die Höhe \texttt{tuxheight} variabel gehalten. Die anderen Größen wie
 \texttt{tuxwidth} oder \texttt{radiustummy} wurden mit \texttt{tuxheight}
 verrechnet.
 
-Der Grundaufbau des Tux besteht aus zwei Grundkugeln, in povray \texttt{sphere}
-genannt. Einer unteren großen Kugel für den Unterleib und einer etwas kleineren
-Kugel für den Kopf oberhalb. Der Unterleib besteht zunächst aus \emph{einer}
-Kugel. Zur Realisierung des weißen Bauches exwurdeieren zwei weitere
-\texttt{sphere}-Objekte, deren Schnittmenge (\emph{intersection}) anschließend
-mit der großen Kugel vereinigt wird (\emph{union}).
+Der Grundaufbau des Tux besteht aus zwei Kugeln, in POV-Ray \texttt{sphere}
+genannt. Einer unteren großen Kugel für den Unterleib und einer etwas Kleineren
+für den Kopf oberhalb. Der Unterleib besteht zunächst aus \emph{einer}
+Kugel. Zur Realisierung des weißen Bauches wurden zwei weitere
+\texttt{sphere}-Objekte erstellt, deren Schnittmenge (\emph{intersection})
+anschließend mit der großen Kugel vereinigt wurden (\emph{union}).
 %
 \begin{tcblisting}{}
   union{
@@ -230,13 +242,13 @@ Unterleib wurden in einer \texttt{declare}-Anweisung als \texttt{head} und
 \texttt{tummy} global geltend gemacht. So können diese direkt angesprochen
 wurden, ohne den Code immer wieder neu reproduzieren zu müssen.
 
-Der Kopf des Pinguins wurde mit einer \texttt{sphere} generiert, die zwei Drittel
-der Größe des Unterleibes beträgt. In den Kopf wurden Augen mit schwarzen Pupillen
-eingelassen. Zunächst wurde die Pupille in einer \texttt{declare}-Anweisung
-festgelegt. Sie besteht wie der Bauch aus der Schnittmenge zweier Kugeln. Die
-beiden Augen wurden in \texttt{LeftEye} und \texttt{RightEye} deklariert. Hier
-wurden die Pupillen als Objekt mit einem weiteren \texttt{sphere}-Objekt
-vereinigt (\texttt{union}).
+Der Kopf des Pinguins wurde mit einer \texttt{sphere} generiert, die zwei
+Drittel der Größe des Unterleibes beträgt. In den Kopf wurden Augen mit
+schwarzen Pupillen eingelassen. Zunächst wurde die Pupille in einer
+\texttt{declare}-Anweisung festgelegt. Sie besteht wie der Bauch aus der
+Schnittmenge zweier Kugeln. Die beiden Augen wurden in \texttt{LeftEye} und
+\texttt{RightEye} deklariert. Hier wurden die Pupillen als Objekt mit einem
+weiteren \texttt{sphere}-Objekt vereinigt (\texttt{union}).
 
 Der Schnabel des Tux wurde mittels eines \texttt{cone}-Objektes realisiert.
 Hierbei wurden Zentrum und Radius der beiden Enden, sowie die Skalierung des
@@ -267,16 +279,15 @@ die Objekte vom eigentlichen Körper unabhängig und können bei Bedarf auch
 weggelassen werden.
 
 
-\subsection{Bewegliche Gliedmaßen}
 \newpage
 
 
 \section{Aufbau der einzelnen Animationssequenzen}
 Der überwiegende Teil der einzelnen Sequenzen wurde jeweils innerhalb einer
-Datei mittels der Funktion \texttt{clock} und mehreren \texttt{if}-Schleifen
-realisiert. Dazu wurde zu Beginn die Variable \texttt{MyClock} deklariert.
-
-Bsp.:
+Datei mittels der Funktion \texttt{clock} und mehreren
+\texttt{if/elsif/else}-Statements realisiert. Dazu wurde zu Beginn die Variable
+\texttt{MyClock} deklariert mit den jeweiligen Zeiteinheiten verglichen, um
+anschließend die gewünschte Bewegung festzulegen.
 %
 \begin{tcblisting}{}
   #declare My_Clock = Start + (End - Start) * clock;
@@ -292,13 +303,13 @@ Bsp.:
 Mittels dieser Deklarationen war es möglich die folgenden kurzen Sequenzen zu
 erstellen.
 
-\subsection{Titelsequenz}
-
-\subsection{Sequenz 1: Erstes Anzeichen von Leben}
+\subsection{Anfangssequenz: Erstes Anzeichen von Leben}
 Das Ei beginnt sich mehrere Male hin und her zu bewegen. Dazwischen gibt es
-immer wieder Pausen. Dazu wurde die sinus-Funktion verwendet. Dabei werden
+immer wieder Pausen. Für das Wackeln des Eis wurde die sinus-Funktion verwendet.
+Diese wurde mit \texttt{MyClock} verknüpft und in eine \texttt{rotate}-Funktion
+integriert. Dadurch bewegt sich das Ei in Abhängigkeit der Zeit hin und her.
 
-\subsection{Sequenz 2: Schlüpfen des Tux}
+\subsection{Sequenz 1: Schlüpfen des Tux}
 Zunächst bekommt das Ei einen Riss, welcher immer größer wird und sich um das
 ganze Ei ausdehnt. Sobald die obere Hälfte von der Unteren des Eis komplett
 getrennt ist, hebt die obere Hälfte ab und fliegt nach hinten weg.
@@ -329,31 +340,104 @@ Animation zeigt im Ergebnis einen Riss, der sich immer mehr vergrößert und am
 Ende zwei Ei-Hälften erscheinen.
 
 \subsection{Sequenz 2: Babytux entdeckt seine beweglichen Gliedmaßen}
+Wie eingangs erwähnt wurden hier je nach Zeiteinheit die einzelnen Gliedmaßen
+bewegt. Dazu wurden die einzelnen Gliedmaßen aus der Datei \texttt{tux.pov}
+angesprochen. Diese wurden anschließend mit den Funktionen \texttt{rotate} oder
+\texttt{translate} bewegt, wobei diese mit der Funktion \texttt{clock}
+verknüpft wurden.
+
+Dies ist auch die erste Sequenz, in welcher eine Kamerafahrt realisiert wurde.
+Dazu wurde die Funktion \texttt{camera} wie ein Objekt behandelt und zu den
+jeweiligen Zeiteinheiten entsprechend rotiert und translatiert.
 
 
-\subsection{Sequenz 3: Babytux macht erste Gehversuche}
+\subsection{Sequenz 3: Flugzeug}
+Das Flugzeug wurde aus den Beispielgalerien von Friedrich A. Lohmüller
+\cite{f-lohmueller} verwendet.  Dazu wurde die Datei \texttt{Plane\_00.inc}
+inkludiert und mit den Funktionen \texttt{rotate}, \texttt{scale} und
+\texttt{translate} an die Bedürfnisse angepasst. Zur Animation wurde das Objekt
+mittels \texttt{clock} translatiert.
 
 
-\subsection{Abschlusssequenz}
-In der Abschlusssequenz erscheint der Originaltux von Larry Ewing als
-Grafik\ldots
+\subsection{Sequenz 4: Bildergalerie}
+Zur Realisierung der Bildergalerie wurden verschiedene Bilddateien an das Makro
+\texttt{PictureFrame} übergeben, welches in der Datei \texttt{pictureFrame.pov}
+implementiert wurde. Dieses Makro wurde anschließend für jede Bilddatei im
+Modul \texttt{gallery.pov} aufgerufen und entsprechend platziert. Dieses Modul
+wurde wiederum neben \texttt{walkingTux.pov} in die eigentliche
+Animationssequenz \texttt{bigTux.pov} inkludiert.
+
+
+\subsection{Abschlusssequenz: Lebensabend}
+In der Abschlusssequenz wurde der blaue Himmel mittels dem Modul
+\texttt{stars.inc} in einen Sternenhimmel geändert. Als Textur der
+\texttt{sphere} wurde \texttt{Starfield1} gewählt und skaliert. Bis auf Tux
+wurden alle Objekte von Friedrich A. Lohmüller \cite{f-lohmueller} verwendet
+und angepasst. So wurden beispielsweise die Wände des Haus-Objektes weiß
+gefärbt. Dazu sind die entsprechenden Objekte wieder als Makros implementiert.
+
+Dem Objekt Schaukelstuhl musste ein Winkel übergeben werden. Um ein Schaukeln
+zu simulieren, wurde dieser mit der Sinusfunktion und \texttt{clock} verknüpft.
+Tux wurde mit dem Schaukelstuhl in einer \texttt{union} vereinigt.
+
 
 \newpage
 
 
 \section{Fertigstellung des gesamten Films}
-
+Alle Module, die Animationssequenzen enthielten wurden mittels \emph{FFmpeg} in
+Videoclips konvertiert. Das Kommandozeilenprogramm \emph{FFmpeg} besitzt
+zahlreiche Parameter, welche Bildqualität und Format beeinflussen. In diesem
+Projekt wurden aus den einzelnen Bildern mp4-Dateien mit folgenden Parametern
+erstellt:
+%
+\begin{tcblisting}{}
+  ffmpeg -framerate 24 -i DATEIEN.png -c:v libx264 -r 30 -pix_fmt yuv420p
+  MOVIE.mp4
+\end{tcblisting}
+%
 
 \subsection{Zusammenfügen der einzelnen Sequenzen}
+Das Zusammenfügen der Animationssequenzen war mittels \emph{iMovie} intuitiv
+möglich. Dazu wurden die Filme einfach per Drag and Drop in die Zeitleiste
+gezogen. Da die Geschwindigkeiten alle von der Funktion \texttt{clock}
+abhingen, mussten diese noch entsprechend beschleunigt bzw. verlangsamt werden.
+
+Um den Übergang zwischen den einzelnen Clips zu optimieren, wurden die
+\emph{iMovie-Übergangsstile} verwendet. Zum Anzeigen von kurzen Texten wurde
+die Titel-Funktion verwendet.
 
 
 \subsection{Vertonung}
+Der komplette Film ist mit Musik unterlegt. Dabei wechselt die Musik zu den
+jeweiligen Abschnitten. Für einen fließenden Übergang wurde die Fade-Funktion
+verwendet. Zu bestimmten Zeitpunkten sind Soundeffekte eingefügt, die alle aus
+der Bibliothek aus \emph{iMovie} stammen.
 
 
 \subsection{Korrekturen}
+Übergänge, die nicht korrekt geschnitten werden konnten wurden durch
+Einzelbilder ersetzt, die in das Programm \emph{iMovie} zum jeweiligen
+Zeitpunkt eingefügt wurden.
 
 
 \newpage
+
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\textwidth]{../poster/filmposter_final.jpg}
+  \caption{
+    Poster zum POV-Ray-Animationsfilm \enquote{Das wunderbare Leben des kleinen
+      Tux}.
+  }
+  \label{fig:poster}
+\end{figure}
+
+
+\newpage
+
+
 \addcontentsline{toc}{section}{Literatur}
 \bibliographystyle{unsrt}
 \bibliography{bibtux}

@@ -1,12 +1,2 @@
-  union{
-    box{
-      <-0.5, 0, -0.5>
-      <0.5, 0.1, 0.5>
-    }
-    box{
-      <-0.5, 0, -0.5>
-      <0.5, 0.1, 0.5>
-      rotate <5, 20, 10>
-    }
-    ...
-  }
+  ffmpeg -framerate 24 -i DATEIEN.png -c:v libx264 -r 30 -pix_fmt yuv420p
+  MOVIE.mp4
